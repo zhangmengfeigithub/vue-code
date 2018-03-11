@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+		<style type="text/css">
+			.bb{
+				font-size: 30px;
+				color: red;
+			}
+			.dd{
+				background-color: #blue;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				new Vue({
+					el:'#app',
+					data:{
+						aa:true,
+						cc:false
+					},
+					methods:{
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+		<p :class="{bb:true,dd:aa}">新的期望</p>
+		</div>
+		
+	</body>
+</html>

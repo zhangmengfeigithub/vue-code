@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<div id="app">
+			<div>
+				<span>账户名</span>
+				<input type="text" placeholder="请输入邮箱" v-model="text"/>
+			</div>
+			<ul v-if="text">
+				<li v-for="item in email">{{dealtext}}@{{item}}.com</li>
+			</ul>
+		</div>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		var app=new Vue({
+			el:"#app",
+			data:{
+				text:'',
+				email:['qq','163','126','189','sina','hotmail','gmail','sohu','21cn']
+			},
+			computed:{
+				dealtext:function(){
+					return this.text.slice(0,this.text.indexOf("@"));
+				}
+			}
+		});
+	</script>
+	</body>
+	
+</html>

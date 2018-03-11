@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			window.onload=function(){
+				new Vue({
+					el:'#app',
+					data:{
+						arr:[1,12,34,5,67],
+						
+					},
+					methods:{
+						show(){
+							console.log('show方法')
+						},
+						add(){
+						this.arr.push(666)
+						}
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+		<button @click="show">点我</button>
+		<button @click="add">添加</button>
+		<br />
+		{{arr}}
+		</div>
+		
+	</body>
+</html>

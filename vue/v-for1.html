@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body id="myApp">
+	<h3>游戏列表</h3>
+	<div v-if='seen'>2017最新发卖</div>
+	<ol>
+		<li v-for='game in games'>{{game.title}}/{{game.price}}</li>
+	</ol>
+	</body>
+</html>
+<script type="text/javascript">
+new Vue({
+	el:'#myApp',
+	data:{
+		seen:false,
+		games:[
+		{
+			title:'勇者斗恶龙',
+			price:400
+		},
+		 {
+            title: '超级马里奥'
+             , price: 380
+         }
+		  , {
+             title: '我的世界'
+             , price: 99
+                    }
+		]
+	}
+})
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+    <script>
+        var home={
+            template:"#aaa"
+        }
+        Vue.component('my-aaa',home)
+        window.onload=function(){
+            
+            new Vue({
+                el:"#box",
+                data:{
+                    msg:"welcome vue2.0"
+                },
+                components:{
+                    'aaa':home
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <template id="aaa">
+        <div>
+            <h3>我爱你</h3>
+            <strong>我是加粗标签</strong>
+        </div>
+    </template>
+    <div id="box">
+        {{msg}}
+        <aaa></aaa>
+    </div>
+    
+</body>
+</html>

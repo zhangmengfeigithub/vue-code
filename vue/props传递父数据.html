@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="js/vue2.js" type="text/javascript" charset="utf-8"></script>
+    <link href="../css/style.css" rel="stylesheet"> </head>
+<body>
+<div id="myApp">
+  <div>请输入你的名字：<input type="text" v-model='message' /></div>
+  <hr />
+  <tem :pmessage='message'></tem>
+  
+</div>
+<script>
+	Vue.component('tem',{
+		props:['pmessage'],
+		template:'<span>你好{{pmessage}}</sapn>'
+	})
+new Vue({
+	el:'#myApp',
+	data:{
+		message:'zhangmengfei'
+	}
+})
+</script>
+</body>
+
+</html>

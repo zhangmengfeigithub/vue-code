@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../day1/js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+
+		</style>
+		<script>
+			window.onload = function() {
+				new Vue({
+					el: '#itany',
+					data: {
+
+					},
+					components: {
+						'my2': {
+							template: '#wbs',
+							data() {
+								return {
+									name: '欢迎你，张梦飞',
+									arr: [1, 2, 3, 4, 5, 6]
+								}
+							}
+						}
+					}
+				})
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="itany">
+			<my2></my2>
+		</div>
+		<template id="wbs">
+			<div>
+				<h2>{{name}}</h2>
+				<ul>
+					<li v-for="val in arr">{{val}}</li>
+				</ul>
+			</div>
+		</template>
+
+	</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body id="myApp">
+	<h1>js对象迭代</h1>
+	<p v-for="(val,key) in mygame">{{key}}:{{val}}</p>
+	</body>
+</html>
+<script type="text/javascript">
+new Vue({
+	el:'#myApp',
+	data:{
+		mygame:{
+			  title: "乌贼娘2代",
+                price: 350,
+                pubdate: "2017年夏季",
+                category: "射击",
+                agerange: "全年龄",
+		}
+	}
+})
+</script>

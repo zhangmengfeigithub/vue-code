@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../day1/js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<style type="text/css">
+				p{
+			width: 100px;
+			height: 100px;
+			background-color:red;
+			margin:20px auto;
+		}
+
+		</style>
+		<script>
+			window.onload = function() {
+				var vm=new Vue({
+			el:'#itany',
+			data:{
+				flag:true,
+				arr:['tom','jack','mike','alice','alex','mark'],
+				name:''
+			},
+			computed:{
+				arr2:function(){
+					var temp=[];
+					this.arr.forEach(val => {
+						if(val.includes(this.name)){
+							temp.push(val);
+						}
+					});
+					return temp;
+				}
+			}
+		});
+
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="itany">
+			<input type="text" v-model="name">
+		
+		<transition-group enter-active-class="animated bounceInLeft" leave-active-class="animated bounceOutRight">
+			<p v-for="(v,k) in arr2" :key="k">
+				{{v}}
+			</p>
+		</transition-group>
+
+			
+		</div>
+	</body>
+
+</html>

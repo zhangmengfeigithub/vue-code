@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			window.onload=function(){
+				new Vue({
+					el:'#app',
+					data:{
+						url:'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png',
+						w:"200px",
+						h:"400px"
+					},
+					methods:{
+					
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+		<img :src="url" :width="w" :height="h"/>
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				new Vue({
+					el: '#app',
+					data: {
+						flag: true
+
+					},
+					methods: {
+						show() {
+							this.flag = !this.flag
+						}
+					}
+				})
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="app">
+			<button @click="show">显示隐藏</button>
+			<br />
+			<div style="width: 100px;height:200px;background-color: red;" v-show='flag'></div>
+		</div>
+
+	</body>
+
+</html>

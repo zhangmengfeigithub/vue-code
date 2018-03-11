@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能社——http://www.zhinengshe.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="js/vue2.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        
+
+    </style>
+    
+    <script>
+      window.onload=function(){
+      	 var myApp = new Vue({
+        el: '#myApp', 
+        data: {
+            username: "",
+            checkUsernameOK: false,
+            age: "",
+            content: "",
+        },
+        methods: {
+            checkUsername: function(){
+                if (this.username.length > 0) this.checkUsernameOK = true;
+                else this.checkUsernameOK = false;
+            },
+        },
+    });
+      }
+    </script>
+</head>
+<body>
+<div id="myApp">
+<h1>用户注册</h1>
+    
+    <div>
+        <label for="username">用户：</label>
+        <input type="text" id="username" v-model.lazy="username" @change="checkUsername">
+        <span v-if="checkUsernameOK">可注册</span>
+    </div>
+    <div>
+        <label for="age">年龄：</label>
+        <input type="number" id="age" v-model.number="age">
+    </div>
+    <div>
+        <label for="content">个人简介：</label><br/>
+        <textarea id="content" v-model.trim="content" cols="55" rows="8"></textarea>
+    </div>
+    
+    <h4>信息区</h4>
+    <p>{{username}}</p>
+    <p>{{age}}</p>
+    <p><pre>{{content}}</pre></p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../day1/js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../day3/css/animate.css"/>
+		<style type="text/css">
+			/*.router-link-active{
+				font-size: 20px;
+				color: orange;
+				text-decoration: none;
+			}*/
+			.active{
+				font-size: 20px;
+				color: orange;
+				text-decoration: none;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div id="itany">
+		<div>
+			<router-link to="/home">主页</router-link>
+			<router-link to="/user">用户</router-link>
+		</div>
+		<div>
+				<router-view></router-view>
+		</div>
+		<hr />
+		<button @click="push">添加路由</button>
+		<button @click="replace">替换路由</button>
+
+	</div>
+
+	<template id="user">
+		<div>
+			<h3>用户信息</h3>
+			<ul>
+				<router-link to="/user/login?name=tom&pwd=123" tag="li">用户登陆</router-link>
+				<router-link to="/user/regist/alice/456" tag="li">用户注册</router-link>
+			</ul>
+			<transition enter-active-class="animated bounceInLeft" enter-active-class="animated bounceOutRight">
+				<router-view></router-view>
+			</transition>
+			
+		</div>
+		
+	</template>
+
+
+		<script>
+			var Home={
+			template:'<h3>我是主页</h3>'
+		}
+		var User={
+			template:'#user'
+		}
+		var Login={
+			template:'<h4>用户登陆。。。获取参数：{{$route.query}},{{$route.path}}</h4>'
+		}
+		var Regist={
+			template:'<h4>用户注册。。。获取参数：{{$route.params}},{{$route.path}}</h4>'
+		}
+
+		const routes=[
+			{
+				path:'/home',
+				component:Home
+			},
+			{
+				path:'/user',
+				component:User,
+				children:[
+					{
+						path:'login',
+						component:Login
+					},
+					{
+						path:'regist/:username/:password',
+						component:Regist
+					}
+				]
+			},
+			{
+				path:'*',
+				redirect:'/home'
+			}
+		]
+
+		const router=new VueRouter({
+			routes, //简写，相当于routes:routes
+			linkActiveClass:'active' //更新活动链接的class类名
+		});
+
+		new Vue({
+			el:'#itany',
+			router, //注入路由
+			methods:{
+				push(){
+					router.push({path:'/home'})
+				},
+				replace(){
+					router.replace({path:'/user'})
+				}
+			}
+		});
+
+		</script>
+
+	</body>
+
+</html>

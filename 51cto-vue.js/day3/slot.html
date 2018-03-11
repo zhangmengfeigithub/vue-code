@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../day1/js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="itany">
+		<hello>
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+			<ol>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+			</ol>
+		</hello>
+		</div>
+
+		<template id="hello">
+			<div>
+				<h3>我是slot</h3>
+				<slot></slot>
+			</div>
+		</template>
+
+		<script>
+			var vm = new Vue({ //根组件
+				el: '#itany',
+				components:{
+					'hello':{
+						template:'#hello'
+					}
+				}
+			});
+		</script>
+
+	</body>
+
+</html>

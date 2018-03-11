@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="js/vue2.js" type="text/javascript" charset="utf-8"></script>
+    <link href="../css/style.css" rel="stylesheet"> </head>
+<body>
+<div id="myApp">
+  <h1>您的成绩评价</h1>
+  <testresult :score="50"></testresult>
+   <testresult :score="65"></testresult>
+    <testresult :score="85"></testresult>
+    <testresult :score="95"></testresult>
+</div>
+<script>
+Vue.component('testresult',{
+	props: ['score'],
+	template:'<p>{{score}}分，{{result}}</p>',
+	computed:{
+		result:function(){
+			var strreuslt=''
+			if(this.score<60){
+				strResult = "不及格";
+			}else if(this.score<90){
+				strResult = '中等生'
+			}else if(this.score<100){
+				strResult = '优秀生'
+			}
+			return strResult
+		}
+	}
+})
+new Vue({
+	el:'#myApp'
+})
+</script>
+</body>
+
+</html>

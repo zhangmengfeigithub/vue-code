@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../day1/js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			window.onload=function(){
+				var vm=new Vue({
+//					el:'#itany',
+					data:{
+						msg:'welcome to itanty'
+					},
+					name:'zhangmengfei',
+					age:25
+				}).$mount("#itany");
+//				console.log(vm.msg)
+//				console.log(vm.$el)
+//				console.log(vm.$data)
+//				console.log(vm.$data.msg)
+//				vm.$el.style.background="red"
+//				console.log(vm.$options.name)
+//				console.log(vm.$options.age)
+//				console.log(vm.$refs)
+//				console.log(vm.$refs.hello)
+//				vm.$refs.hello.style.background="blue"
+                vm.msg="zhangmengfei"
+//              console.log(vm.$refs.msg.textContent)
+                vm.$nextTick(function(){
+                	console.log(vm.$refs.msg.textContent)
+                })
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="itany">
+			<!--<h1 ref="hello">hello</h1>
+			<h1 ref="world">world</h1>-->
+			<h1 ref="msg">{{msg}}</h1>
+		</div>
+	</body>
+
+</html>

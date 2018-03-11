@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../day1/js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="itany">
+			<my-a></my-a>
+			<my-b></my-b>
+			<my-c></my-c>
+		</div>
+		<template id='a'>
+			<div>
+				<h2>A组件{{name}}</h2>
+				<button @click="send">传递A数据</button>
+			</div>
+		</template>
+		<template id='b'>
+			<div>
+				<h2>B组件{{age}}</h2>
+				<button @click="sendage">传递B数据</button>
+			</div>
+		</template>
+		<template id='c'>
+			<div>
+				<h2>c组件:{{name}},{{age}}</h2>
+			</div>
+		</template>
+		<script>
+			var Event = new Vue();
+			var A = {
+				template: '#a',
+				data() {
+					return {
+						name: 'tom'
+					}
+				},
+				methods: {
+					send() {
+						Event.$emit('data-a', this.name)
+					}
+				}
+			};
+			var B = {
+				template: '#b',
+				data() {
+					return {
+						age: 20
+					}
+				},
+				methods:{
+					sendage(){
+							Event.$emit('data-b', this.age)
+					}
+				}
+			};
+			var C = {
+				template: '#c',
+				data() {
+					return {
+						name: '',
+						age:''
+					}
+				},
+				mounted(){ //在模板编译完成后执行
+				Event.$on('data-a',name => {
+					this.name=name;
+					// console.log(this);
+				});
+
+				Event.$on('data-b',age => {
+					this.age=age;
+				});
+			}
+
+				
+			};
+			var vm = new Vue({ //根组件
+				el: '#itany',
+				components: {
+					'my-a': A,
+					'my-b': B,
+					'my-c': C
+				}
+			});
+		</script>
+
+	</body>
+
+</html>

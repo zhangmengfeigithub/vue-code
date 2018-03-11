@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../day1/js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+		window.onload=function(){
+			new Vue({
+				el:'#itany',
+				data:{
+					msg:'我是组件'
+				},
+				methods:{
+					update(){
+						this.msg="欢迎来到南京网"
+					},
+					destroy(){
+						this.$destroy();
+					}
+				},
+				beforeCreate(){
+					alert('实例刚刚创建，还未进行数据观测和事件配置')
+				},
+				created(){
+					alert('实例已经创建，并且已经进行数据观测和事件配置')
+				},
+				beforeMount(){
+					alert('模板编译之前，还没挂载')
+				},
+				mounted(){
+					alert('模板编译之后，挂载完成，此时才能看到页面')
+				},
+				beforeUpdate(){
+					alert('组件更新之前')
+				},
+				updated(){
+					alert('组件更新之后')
+				},
+				beforeDestroy(){
+					alert('组件销毁之前')
+				},
+				destroyed(){
+					alert('组件销毁之后')
+				}
+				
+				
+			});
+		}
+	</script>
+</head>
+<body>
+	<div id="itany">
+		{{msg}}
+		<br />
+		<button @click="update">更新组件</button>
+		<button @click="destroy">销毁组件</button>
+	</div>
+</body>
+</html>

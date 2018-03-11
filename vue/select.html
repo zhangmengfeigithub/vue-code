@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能社——http://www.zhinengshe.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="js/vue2.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        
+
+    </style>
+    
+    <script>
+      window.onload=function(){
+      	new Vue({
+      		el:'#myApp',
+      		data:{
+      		    star:'',
+      		    stars:[]
+      		}
+      	})
+      }
+    </script>
+</head>
+<body>
+<div id="myApp">
+<h1>你最喜欢的NBA球星是：</h1>
+<select name="" style="width: 300px;" v-model="star">
+	<option value="科比">科比</option>
+	<option value="詹姆士">詹姆士</option>
+	<option value="杜兰特">杜兰特</option>
+	<option value="哈登">哈登</option>
+	<option value="乔丹">乔丹</option>
+</select>
+<h1>我的全明星</h1>
+<select name="" style="width: 300px; height: 200px;" multiple="multiple" v-model="stars">
+	<option value="科比">科比</option>
+	<option value="詹姆士">詹姆士</option>
+	<option value="杜兰特">杜兰特</option>
+	<option value="哈登">哈登</option>
+	<option value="乔丹">乔丹</option>
+	<option value="科比">科比</option>
+	<option value="詹姆士">詹姆士</option>
+	<option value="杜兰特">杜兰特</option>
+	<option value="哈登">哈登</option>
+	<option value="乔丹">乔丹</option>
+</select>
+<h1>选择结果</h1>
+<p>我最喜欢：{{star}}</p>
+<p>我最喜欢：{{stars}}</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能社——http://www.zhinengshe.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="js/vue2.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        
+
+    </style>
+    
+    <script>
+      window.onload=function(){
+      	new Vue({
+      		el:'#box',
+      		data:{
+      			checkedGames:[]
+      		}
+      	})
+      }
+    </script>
+</head>
+<body>
+<div id='box'>
+   <h1>表单复选框</h1>
+    <input type="checkbox" id="生化危机7" value="生化危机7" v-model="checkedGames">
+    <label for="生化危机7">生化危机7</label>
+    <input type="checkbox" id="模拟飞行" value="模拟飞行" v-model="checkedGames">
+    <label for="模拟飞行">模拟飞行</label>
+    <input type="checkbox" id="塞尔达传说" value="塞尔达传说" v-model="checkedGames">
+    <label for="塞尔达传说">塞尔达传说</label>
+    <br>
+    <p>您选择的游戏是: {{ checkedGames }}</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

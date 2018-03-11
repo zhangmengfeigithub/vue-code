@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js">
+		</script>
+	</head>
+<body>
+  <div id="box">
+   <myaaa></myaaa>
+  </div>
+  <template id="aaa">
+  	<h1>标题</h1>
+  	<ul>
+  		<li v-for="val in arr">{{val}}</li>
+  	</ul>
+  </template>
+  <script>
+    var vm=new Vue({
+    	el:"#box",
+    	components:{
+    		myaaa:{
+    			data(){
+    				return {
+    					msg:"welcome vue",
+    					arr:['apple','banana','orange']
+    				}
+    			},
+    			methods:{
+    				change(){
+    					this.msg="changed"
+    				}
+    			},
+    			template:'#aaa'
+    		}
+    	}
+    })
+  </script>
+</body>
+</html>

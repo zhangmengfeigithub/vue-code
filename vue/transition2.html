@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能社——http://www.zhinengshe.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="js/vue2.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+p{
+	width: 100px;
+	height: 100px;
+	background-color:red;
+}
+       .fold-enter-active {
+  animation-name: fold-in;
+  animation-duration: .5s;
+}
+.fold-leave-active {
+  animation-name: fold-out;
+  animation-duration: .5s;
+}
+@keyframes fold-in {
+  0% {
+    transform: translate3d(0, 100%, 0);
+  }
+  50% {
+    transform: translate3d(0, 50%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fold-out {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 50%, 0);
+  }
+  100% {
+    transform: translate3d(0, 100%, 0);
+  }
+}
+    </style>
+    
+    <script>
+        window.onload=function(){
+            new Vue({
+                el:'#box',
+                data:{
+                    show:false
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+<div id='box'>
+  <button @click="show=!show">show</button>
+  <transition name="fold">
+    <p v-show="show">hello</p>
+  </transition>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

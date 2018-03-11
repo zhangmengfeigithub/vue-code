@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../day1/js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<style type="text/css">
+			p{
+			width: 200px;
+			height: 200px;
+			background-color:red;
+		}
+		</style>
+		<script>
+			window.onload = function() {
+				new Vue({
+					el: '#itany',
+					data: {
+						flag: false
+					},
+					methods:{
+						change(){
+							this.flag=!this.flag
+						}
+					}
+
+				})
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="itany">
+			<button @click="change">点击切换</button>
+			<transition-group enter-active-class="animated bounceInLeft" leave-active-class=" animated bounceOutRight">
+				<p class="box" v-show="flag" :key='1'>张孟飞</p>
+				<p class="box" v-show="flag" :key='2'>彭静</p>
+			</transition-group>
+			
+		</div>
+	</body>
+
+</html>

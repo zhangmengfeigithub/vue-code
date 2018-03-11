@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../day1/js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+		window.onload=function(){
+			new Vue({
+				el:'#itany',
+				data:{
+					msg:'我是组件',
+					num1:7
+				},
+				computed:{
+					msg2(){
+						return "欢迎光临"
+					},
+					msg3(){
+						return this.msg.split('').reverse().join('')
+					},
+					num2(){
+						return this.num1-1
+					}
+				},
+				methods:{
+					change(){
+						this.msg="i love you"
+					},
+					getnum2(){
+						return this.num1-1
+					}
+				}
+			});
+		}
+	</script>
+</head>
+<body>
+	<div id="itany">
+		{{msg}}
+		<br />
+		{{msg2}}
+		<br />
+		{{msg2.split('').reverse().join('')}}
+		<br />
+		{{msg3}}
+		<button @click="change">改变msg的值</button>
+		<h1>{{num1}}</h1>
+		<h1>{{num2}}</h1>
+		<h1>{{getnum2()}}</h1>
+	</div>
+</body>
+</html>

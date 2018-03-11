@@ -1,0 +1,18 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>webpack vue</title>  
+</head>  
+<body>  
+    <div id="app">  
+         <h1>Hello App!</h1>  
+          <p>  
+            <a v-link="{ path: '/login' }">登录界面 </a>  
+            <a v-link="{ path: '/register' }">注册界面</a>  
+          </p>  
+          <router-view></router-view>  
+    </div>  
+    <script src="dist/main.js"></script>  
+</body>  
+</html>  

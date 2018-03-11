@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="js/vue2.js" type="text/javascript" charset="utf-8"></script>
+    <link href="../css/style.css" rel="stylesheet"> </head>
+<body>
+<div id="myApp">
+	<p>{{message}}</p>
+	<p>{{message|touppercase}}</p>
+	<hr />
+	<p>现在的vue.js学习进度是{{num|topercentage}}</p>
+</div>
+<script>
+new Vue({
+	el:"#myApp",
+	data:{
+		message:'hello vue.js world.',
+		num:0.3
+	},
+	filters:{
+		touppercase:function(val){
+			return val.toUpperCase()
+		},
+		topercentage:function(val){
+			return val*100+'%'
+		}
+	}
+})
+</script>
+</body>
+
+</html>

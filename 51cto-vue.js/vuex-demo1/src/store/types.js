@@ -1,0 +1,6 @@
+const INCREMENT='INCREMENT'
+const DECREMENT='IDECREMENT'
+export default{
+	INCREMENT,
+	DECREMENT
+}

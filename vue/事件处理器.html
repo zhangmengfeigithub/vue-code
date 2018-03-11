@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="js/vue2.js" type="text/javascript" charset="utf-8"></script>
+    <link href="../css/style.css" rel="stylesheet"> </head>
+<body>
+<div id="myApp">
+<h1>事件处理器</h1>
+<input type="text" id="txtname" v-on:keyup="txtkeyup($event)"/>
+<button id="btnok" v-on:click="btnclick($event)">ok</button>
+</div>
+<script>
+new Vue({
+	el:"#myApp",
+	data:{},
+	methods:{
+		txtkeyup:function(event){
+			this.debugLog(event)
+		},
+		btnclick:function(event){
+				this.debugLog(event)
+		},
+		 debugLog:function(event){
+                console.log(
+                    event.srcElement.tagName, 
+                    event.srcElement.id, 
+                    event.srcElement.innerHTML, 
+                    event.key?event.key:""
+                );
+            },
+	}
+})
+</script>
+</body>
+
+</html>

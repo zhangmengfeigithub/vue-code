@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能社——http://www.zhinengshe.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="js/vue2.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        
+
+    </style>
+    
+    <script>
+      window.onload=function(){
+      	new Vue({
+      		el:'#box',
+      		data:{
+      			message:'我是张孟非'
+      		}
+      	})
+      }
+    </script>
+</head>
+<body>
+<div id='box'>
+ <h1>表单控件</h1>
+ <input type="text" v-model="message" /><br />
+ <p>message is:{{message}}</p>
+ <textarea name="" rows="5" cols="20" v-model="message"></textarea>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

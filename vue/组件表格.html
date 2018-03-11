@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="js/vue2.js" type="text/javascript" charset="utf-8"></script>
+    <link href="../css/style.css" rel="stylesheet"> </head>
+<body>
+<div id="myApp">
+   <h1>2017年最期待的游戏</h1>
+   <table border="1">
+   	<tr>
+   		<td>编号</td>
+   		<td>游戏名称</td>
+   	</tr>
+   	<tr is="row1"></tr>
+   	<tr is="row2"></tr>
+   	<tr is="row3"></tr>
+   </table>
+</div>
+<script>
+  Vue.component("row1",{
+  	template:'<tr><td>(1)</td><td>塞尔达传说:荒野之息(3/3)</td></tr>'
+  })
+    Vue.component("row2",{
+  	template:'<tr><td>(1)</td><td>塞尔达传说:荒野之息(3/3)</td></tr>'
+  })
+      Vue.component("row3",{
+  	template:'<tr><td>(1)</td><td>塞尔达传说:荒野之息(3/3)</td></tr>'
+  })
+     var myApp = new Vue({
+      	el:'#myApp',
+      	data:{},
+      	methods:{}
+      })
+</script>
+</body>
+
+</html>

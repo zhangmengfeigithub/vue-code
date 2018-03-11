@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+		<script type="text/javascript">
+			window.onload=function(){
+				new Vue({
+					el:'#app',
+					methods:{
+						show(e){
+							if(e.keyCode>70){
+								console.log('你是猪吗')
+							}else{
+								console.log("haha")
+							}
+						},
+						print(){
+							console.log("回车")
+						}
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="app">
+		<input type="text" @keydown.enter="print($event)"/>
+		</div>
+		
+	</body>
+</html>

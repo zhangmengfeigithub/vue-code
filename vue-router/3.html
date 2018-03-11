@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue-router功能 2 动态路由</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <h1 v-text="title"></h1>
+    <p>
+        <router-link to="/user">user list</router-link>
+    </p>
+    <router-view></router-view>
+</div>
+
+
+<script type="text/javascript">
+
+//用户列表组件
+var UserList = Vue.extend({
+    data:function(){
+        return {
+            title:'用户列表'
+            ,userList:[
+                {id:'1',name:'louis screw'}
+                ,{id:'2',name:'shirley wang'}
+            ]
+        }
+    }
+    ,template:'\
+        <ul>\
+            <li v-for="user in userList">\
+                <router-link :to="{ path: \'/user/\'+user.id }">\
+                    <span v-text="user.id"></span>\
+                    <span v-text="user.name"></span>\
+                </router-link>\
+            </li>\
+        </ul>\
+    '
+});
+
+var User = Vue.extend({
+    data:function(){
+        return {
+            title:'User的详细页面'
+        }
+    }
+    ,watch: {
+        '$route':function(to, from) {//监控在当前组件中路由发生变化时执行的函数，如果/user/1 切换到 /user/2时就会执行此方法
+            console.log(to,from)
+        }
+    }
+    ,template:'\
+        <div>\
+            <div v-text="title"></div>\
+            <div>传递过来的用户编号 {{ $route.params.id }}</div>\
+        </div>\
+    '
+});
+
+var router = new VueRouter({
+    mode:'hash' //router的模式，分为history 、hash(默认)
+    ,routes:[
+         { path: '/', redirect: '/user' } //router的重定向方法
+        ,{ path: '/user', component: UserList }
+        ,{ path: '/user/:id', component: User }
+    ]
+});
+
+//如果使用全局的 script 标签，则无须如此（手动安装）。
+var vm = new Vue({
+    el:'#app'
+    ,router:router //通过vue配置中的router挂载router实例
+    ,data:{
+        title:'Hello vue-router'
+    }
+});
+
+</script>
+</body>
+</html>
+

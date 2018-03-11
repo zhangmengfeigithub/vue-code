@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body id="myApp">
+<p>你最喜欢的游戏是：{{message}}</p>
+<input type="text" v-model='message' />
+	</body>
+</html>
+<script type="text/javascript">
+new Vue({
+	el:"#myApp",
+	data:{
+		message:'超级马里奥'
+	}
+})
+</script>

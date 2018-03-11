@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../day1/js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			window.onload=function(){
+				var vm=new Vue({
+					el:'#itany',
+					data:{
+						name:'jack',
+						user:{
+							name:'zhangmengfei',
+							id:'1002'
+						}
+					},
+					watch:{
+						name:function(newvalue,oldvalue){
+							console.log(newvalue,oldvalue)
+						},
+						user:{
+							handler:function(newvalue,oldvalue){
+								console.log(newvalue.name,oldvalue.name)
+							},
+							deep:true
+						}
+					},
+					methods:{
+						changename(){
+							this.user.name="tom"
+						},
+						doadd(){
+//							this.$set(this.user,"age",18)
+                            if(this.user.age){
+                            	this.user.age++
+                            }else{
+                            	Vue.set(this.user,'age',1)
+                            }
+						},
+						dodelete(){
+							if(this.user.age){
+								Vue.delete(this.user,'age')
+							}
+						}
+					}
+				})
+//				vm.$watch('name',function(newvalue,oldvalue){
+//					console.log(newvalue,oldvalue)
+//				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="itany">
+			<button @click="changename()">修改姓名</button>
+			<button @click="doadd">增加年龄</button>
+			<button @click="dodelete">删除年龄</button>
+			<h2>{{user.name}}</h2>
+			<h2>{{user.age}}</h2>
+			<input v-model="name"/>
+			<h2>{{name}}</h2>
+			
+		</div>
+	</body>
+
+</html>

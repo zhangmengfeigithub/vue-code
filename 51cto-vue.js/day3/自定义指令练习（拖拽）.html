@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../day1/js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+			}
+			.div1{
+				background-color: red;
+				left: 400px;
+				top: 0;
+			}
+			.div2{
+				background-color: blue;
+				top: 0;
+				right:0;
+			}
+		</style>
+		<script>
+		Vue.directive("drag",function(el){
+			el.onmousedown=function(e){
+				var disx=e.clientX-el.offsetLeft;
+				var disy=e.clientY-el.offsetTop
+				document.onmousemove=function(e){
+					var l=e.clientX-disx;
+					var t=e.clientY-disy;
+					el.style.left=l+'px';
+					el.style.top=t+'px';
+				document.onmouseup=function(){
+					document.onmousemove=null;
+					document.onmouseup=null;
+				}
+				}
+			}
+		})
+			window.onload=function(){
+				var vm=new Vue({
+				el:'#itany',
+				})
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="itany">
+			<div class="div1" v-drag></div>
+			<div class="div2" v-drag></div>
+		</div>
+	</body>
+
+</html>

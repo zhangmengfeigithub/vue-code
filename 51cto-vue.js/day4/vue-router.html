@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../day1/js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/vue-router.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			/*.router-link-active{
+				font-size: 20px;
+				color: orange;
+				text-decoration: none;
+			}*/
+			.active{
+				font-size: 20px;
+				color: orange;
+				text-decoration: none;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div id="itany">
+			<router-link to="/home">
+				主页
+			</router-link>
+			<router-link to='/news'>
+				新闻
+			</router-link>
+			<div id="">
+				<router-view>
+
+				</router-view>
+			</div>
+
+		</div>
+
+		<script>
+			var Home={
+				template:'<h3>我是主页</h3>'
+			}
+			var News={
+				template:'<h3>我是新闻</h3>'
+			}
+			const routes=[
+			{path:'/home',component:Home},
+			{path:'/news',component:News},
+			{path:'*',redirect:'/home'}
+			];
+			var router =new VueRouter({
+//				mode:'history',
+				routes,
+				linkActiveClass:'active'
+			});
+			
+			var vm = new Vue({ //根组件
+				router,
+				el: '#itany',
+			});
+		</script>
+
+	</body>
+
+</html>

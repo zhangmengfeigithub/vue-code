@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../day1/js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+
+		</style>
+		<script>
+			window.onload = function() {
+				new Vue({
+					el: '#itany',
+					data: {
+                        flag:'my1'
+					},
+					components: {
+						'my1': {
+							template: '<h2>我是My1组件{{x}}</h2>',
+							data() {
+								return {
+									x:Math.random()
+								}
+							}
+						},
+						'my2': {
+							template: '<h2>我是My2组件{{y}}</h2>',
+							data() {
+								return {
+									y:Math.random()
+								}
+							}
+						}
+					}
+				})
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="itany">
+			<button @click="flag='my1'">显示组件1</button>
+			<button @click="flag='my2'">显示组件2</button>
+			<hr />
+			<keep-alive>
+				<component :is="flag"></component>
+			</keep-alive>
+			
+		</div>
+	</body>
+
+</html>

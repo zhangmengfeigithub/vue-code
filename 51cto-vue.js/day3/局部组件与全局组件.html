@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../day1/js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+           
+		</style>
+		<script>
+			var mycomponent=Vue.extend({
+				template:'<h2>helloworld</h2>'
+			})
+			Vue.component('my',mycomponent)
+			Vue.component('my1',{
+				template:'<h1>你好，{{name}}</h1>',
+				data(){
+					return {
+						name:'张梦飞'
+					}
+				}
+			})
+			window.onload = function() {
+				new Vue({
+					el: '#itany',
+					data: {
+						flag: false
+					},
+					components:{
+						'my2':{
+							template:'<h2>{{age}}</h2>',
+							data(){
+								return{
+									'age':25
+								}
+							}
+						}
+					}
+				})
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="itany">
+		<my></my>
+		<my1></my1>
+		<my2></my2>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能社——http://www.zhinengshe.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="js/vue2.js" type="text/javascript" charset="utf-8"></script>
+    <style>
+        
+
+    </style>
+    
+    <script>
+      window.onload=function(){
+      	new Vue({
+      		el:'#myApp',
+      		data:{
+      		    pickedSex:'',
+      		    pickedHobby:''
+      		}
+      	})
+      }
+    </script>
+</head>
+<body>
+<div id="myApp">
+    <h1>表单单选按钮</h1>
+
+    <h3>选择性别</h3>
+    <input type="radio" id="male" value="男" v-model="pickedSex">
+    <label for="male">男</label>
+    <br>
+    <input type="radio" id="female" value="女" v-model="pickedSex">
+    <label for="female">女</label>
+
+    <h3>选择爱好</h3>
+    <input type="radio" id="game" value="玩游戏" v-model="pickedHobby">
+    <label for="game">玩游戏</label>
+    <br>
+    <input type="radio" id="movie" value="看电影" v-model="pickedHobby">
+    <label for="movie">看电影</label>
+
+    <h3>选择结果</h3>
+    <p>性别: {{ pickedSex }}</p>
+    <p>爱好: {{ pickedHobby }}</p>
+
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

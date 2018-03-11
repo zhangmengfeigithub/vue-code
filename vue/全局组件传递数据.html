@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="js/vue2.js" type="text/javascript" charset="utf-8"></script>
+    <link href="../css/style.css" rel="stylesheet"> 
+</head>
+<body>
+<div id="myApp">
+  <div>
+  	<mycom></mycom>
+  </div>
+</div>
+<script>
+ Vue.component('mycom',{
+ 	template:'<h2>{{todayWeather}}</h2>',
+ 	data:function(){
+ 		return {
+ 			todayWeather: '雨加雪'
+ 		}
+ 	}
+ })
+ new Vue({
+ 	el:'#myApp',
+ 	data:{}
+ })
+</script>
+</body>
+
+</html>
